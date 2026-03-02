@@ -688,7 +688,7 @@ function nouveau(){
   document.getElementById("hint").textContent="";document.getElementById("legend").style.display="none";
   document.getElementById("guide-box").className="guide-box";document.getElementById("btn-suiv").style.display="none";
   document.getElementById("essais-row").style.display="none";
-  posed.innerHTML="";viewUsed=false;
+  posed.innerHTML="";viewUsed=false;exerciceTermine=false;
 }
 
 /* SCORE & HISTORIQUE */
