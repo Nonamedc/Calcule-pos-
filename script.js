@@ -217,6 +217,7 @@ function placer(){
   poserCalc();
 }
 function poserCalc(){
+  document.querySelector('.btn-gr').disabled=false;
   document.getElementById("result").textContent="";document.getElementById("hint").textContent="";
   document.getElementById("problem").textContent=fmt(a)+" "+opSym()+" "+fmt(b)+" = ?";
   document.getElementById("legend").style.display="none";
@@ -613,6 +614,9 @@ if(correct){
 
   // Score
   if(correct){
+    document.querySelector('.btn-gr').disabled=true;
+exerciceTermine=true;
+score.ok++;
     score.ok++;score.streak++;score.maxStreak=Math.max(score.maxStreak,score.streak);
     const pts=calcPts(hintUsed);score.pts+=pts;
     const bonus=score.streak>=10?15:score.streak>=5?8:score.streak>=3?3:0;
