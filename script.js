@@ -599,11 +599,13 @@ function corriger(){
   }
 
   // Stats
-  if(!opStats[op])opStats[op]={ok:0,total:0};
+  // Stats
+if(!opStats[op])opStats[op]={ok:0,total:0};
+if(correct){
+  exerciceTermine=true;
+  opStats[op].ok++;
   opStats[op].total++;
-  if(correct){
-    opStats[op].ok++;
-  } else {
+} else {
     // Enregistrer l'erreur
     const expr=fmt(a)+" "+opSym()+" "+fmt(b);
     erreurs[expr]=(erreurs[expr]||0)+1;
@@ -611,7 +613,6 @@ function corriger(){
 
   // Score
   if(correct){
-    exerciceTermine=true;
     score.ok++;score.streak++;score.maxStreak=Math.max(score.maxStreak,score.streak);
     const pts=calcPts(hintUsed);score.pts+=pts;
     const bonus=score.streak>=10?15:score.streak>=5?8:score.streak>=3?3:0;
